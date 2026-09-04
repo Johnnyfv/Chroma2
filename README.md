@@ -1,71 +1,58 @@
-# CHROMA
+# CHROMA II — Higher Dimensions
 
-A full-screen, interactive WebGL visualizer. Five procedural 3D worlds, five color spectra, hidden controls, touch navigation, an automatic journey, and optional local audio reactivity.
+A self-contained, GitHub Pages-ready visualizer inspired by luminous geometric shells, layered waves, and fine neon strands.
 
-## GitHub Pages — no build required
+## Publish
 
-The downloadable ZIP puts `index.html` at its root. Upload the extracted files, not the ZIP itself.
+Extract the ZIP and upload `index.html` to the root of your GitHub repository, replacing the previous version. In Settings → Pages, select Deploy from a branch → main → /(root) → Save. No build, installation, API keys, or dependencies are needed. The optional `.nojekyll` file is included.
 
-1. Create a GitHub repository, or open the repository you want to use.
-2. Choose **Add file → Upload files** and upload `index.html` to the repository root. Commit the upload to `main`.
-3. Open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Choose **main** and **/(root)**, then **Save**.
-6. Open the address GitHub displays after deployment completes.
+## What's new
 
-For a project repository, the address will normally be `https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/`. All application code is embedded in `index.html`, so subdirectory hosting works without changing paths.
+- Nested tesseracts: 16 vertices and 32 edges per hypercube, rotated through 4D and projected into 3D.
+- Crystal lattices: connected cubic networks with diagonal crystal bonds.
+- Nested 24-cells: 24 vertices and 96 edges per four-dimensional polytope.
+- Geodesic crystals: layered, subdivided icosahedral shells.
+- Hopf-inspired weaves: linked-looking circular fibers rotating through 4D.
+- Hyperblooms: stacked, undulating geometric contours.
+- Continuous vertex morphing across all six structures, without black scene transitions.
+- Touch ripples, localized bending, rotational drag, and pinch zoom.
+- An audio rewrite with a persistent player, gesture-based audio activation, a connected silent microphone analysis path, sensitivity control, and a live level meter.
 
-GitHub's publishing instructions: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
-
-If using this source checkout instead of the downloadable ZIP, copy `dist/index.html` into the root of your GitHub repository.
+The tesseract and 24-cell begin with their mathematical vertices and edges. Touch, audio deformation, and the in-between morphs intentionally alter those shapes for artistic expression. Hopf Weave is an artistic construction, not a complete mathematical visualization of the Hopf fibration.
 
 ## Controls
 
-The interface fades after 6.5 seconds. The small button in the bottom-right corner always remains available. Press **H** or tap that button to reveal the control room.
+Tap the bottom-right button or press H to open the hidden control panel. Text fades after 6.5 seconds.
 
-| Action | Control |
-| --- | --- |
-| Reveal / hide controls | H / corner button |
-| Rotate the view | Drag with mouse or one finger |
-| Move closer / farther | Mouse wheel / two-finger pinch / Distance slider |
-| Pause visual motion | Space |
-| Change dimension | 1–5 |
-| Change palette | C |
-| Randomize | R / Surprise me |
-| Full screen | F, when supported by your browser |
+- Drag: orbit the structure.
+- Hold: bend and ripple the geometry.
+- Pinch or scroll: travel closer or farther away.
+- 1–6: choose a form; it morphs into place.
+- Space: pause / resume visual motion.
+- C: change spectrum.
+- R: surprise me.
+- F: full screen when supported.
+- Continuous morph: automatically move to another form every 16 seconds, with a 10-second transition.
+- Intricacy: rebuild the structure with different detail, morphing into the new form.
 
-Auto journey changes worlds every 38 seconds of active playback. Switch it off to stay in a world. Visual motion and audio playback have separate pause controls.
+## Music
 
-## Dimensions
+Open the deployed HTTPS page directly in Safari or Chrome for the most reliable audio support. An embedded preview or file viewer may restrict audio or microphone access.
 
-- **Chromatic Orbit:** a twisted luminous knot with fine latticework and orbital rings.
-- **Velvet Wormhole:** an undulating, spiraling tunnel of light.
-- **Prism Bloom:** a perforated, crystalline flower sphere.
-- **Liquid Infinity:** an intricate gyroid sculpture.
-- **Event Horizon:** a dark core surrounded by a luminous accretion disc.
+Choose Open music and select an actual, unprotected audio file. A native playback bar appears. If automatic playback is blocked, press Play / resume or the player's play button. Audio decoding depends on your browser; common choices are MP3, M4A, and WAV. Streaming-service tracks and DRM-protected downloads cannot be loaded as ordinary files.
 
-Flow adjusts speed; Intricacy changes geometry detail; Radiance adjusts glow; Distance controls the view. Color palettes are Prismatic, Solar, Glacial, Iridescent, and Electric.
+The signal meter shows the level being analyzed. Increase Audio sensitivity if the response is subtle. Bass expands the structure and upper frequencies brighten it. Visual pause and audio pause are separate controls.
 
-## Audio
+## Microphone
 
-Choose **Open music** for a local audio file. Browser codec support determines which files play; MP3, M4A, and WAV are common choices. Bass swells the form and light, while upper frequencies lift its radiance. **Pause audio** pauses the track. **Disconnect** releases the source.
+Tap Microphone and grant access. The input is analyzed locally and routed through a silent output path; it is not recorded, uploaded, or played back. Speak or play music near your device and watch the meter. Tap Disconnect to release microphone access.
 
-**Microphone** asks your browser for permission. Incoming audio is analyzed locally and is not played back, recorded, or uploaded. Tap **Disconnect** or the Microphone button again to stop access. Microphone input requires HTTPS, which GitHub Pages provides. The microphone does not capture other tabs' internal audio directly.
+Microphone access requires HTTPS and browser permission. It does not directly capture internal audio from another app or browser tab. If denied, enable microphone permission in your browser's site settings and try again.
 
-## Compatibility and performance
+## Notes
 
-Requires a browser with WebGL and fragment high-precision support. No external libraries, fonts, services, accounts, API keys, package installation, or build tools. The visualizer can also run by opening `index.html` on a computer; microphone access may be restricted for local files.
+No testing was performed for this revision, as requested. The audio changes are implemented but have not been confirmed on a physical device.
 
-Adaptive resolution reduces the GPU workload on slower devices. Choose Battery saver for a cooler, lower-resolution experience. Full-screen availability varies by device and browser, especially on iPhone.
+The experience uses WebGL and requires hardware/browser support. Render quality can be lowered for battery life. Reduced-motion preferences start the animation paused and continuous morphing off. Full-screen support varies, especially on iPhone. No external requests or dependencies are used by the application.
 
-The page honors your device's reduced-motion preference by starting paused with Auto journey off. Resume from the control panel when desired. Motion pauses while the tab is hidden; manually started audio can continue playing. A visible message explains unavailable WebGL or a lost graphics context.
-
-## Validation
-
-JavaScript syntax and a simulated interaction check passed for startup, all world and palette buttons, control visibility, scene changes, uniforms, sliders, pause/resume, zoom bounds, drag, journey toggle, and the no-WebGL fallback. GPU shader compilation, visual output, and actual microphone/full-screen behavior were not tested in a real browser in the build environment.
-
-## Files
-
-- `index.html` — the entire application.
-- `.nojekyll` — optional instruction to serve the files as static content.
-- `README.md` — these instructions.
+This ZIP contains the application and instructions only. Uploading it does not change the previously hosted CHROMA Site.

@@ -1,10 +1,20 @@
-# CHROMA II — Higher Dimensions
+# CHROMA II 2.1 — iPhone / Safari update
 
 A self-contained, GitHub Pages-ready visualizer inspired by luminous geometric shells, layered waves, and fine neon strands.
 
+## Startup repair and iPhone changes
+
+The previous source used different default precision for shared uniforms and varyings in its vertex and fragment shaders. WebGL 1 can reject that pairing during shader linking. Both stages now receive matching precision declarations, selected from the graphics device's supported fragment precision. The old generic instruction to switch browsers has been replaced with actual shader error details if startup still fails.
+
+On touch devices this version uses 1,536 line segments (desktop: 2,304), 88 glow nodes (desktop: 160), a default 1× render scale, a 1,440-pixel long-edge cap, and a 30 fps target. High definition opts into a 60 fps target and higher resolution. Targets depend on the device's available performance. Automatic quality can lower resolution further when rendering falls behind. Geometry buffers are reused between morphs and the audio meter updates at most ten times per second.
+
+Touch controls have larger targets, safe-area spacing, landscape support, and viewport handling for Safari's changing toolbar. The canvas releases depth and stencil buffers it does not use. Pause/resume after changing tabs resets timing and clears stale touches.
+
+No browser tests, automated tests, or device tests were run for this revision, as requested. This is a code-level repair; successful loading on your iPhone is not yet confirmed.
+
 ## Publish
 
-Extract the ZIP and upload `index.html` to the root of your GitHub repository, replacing the previous version. In Settings → Pages, select Deploy from a branch → main → /(root) → Save. No build, installation, API keys, or dependencies are needed. The optional `.nojekyll` file is included.
+Extract the ZIP and upload `index.html` to the root of your GitHub repository, replacing the previous version. After GitHub Pages finishes updating, reload the page. If an older copy appears, open your usual address with `?v=2.1` at the end to request a fresh URL. In Settings → Pages, select Deploy from a branch → main → /(root) → Save. No build, installation, API keys, or dependencies are needed. The optional `.nojekyll` file is included.
 
 ## What's new
 
